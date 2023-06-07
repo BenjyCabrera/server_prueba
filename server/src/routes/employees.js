@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     "SELECT * FROM current_employees LIMIT " + sizePage + " OFFSET " + offset;
   const [rows, fields] = await pool.query(sql);
 
-  res.json(rows);
+  res.setHeader('Access-Control-Allow-Origin','*').json(rows);
 });
 
 //GET ONEBYID
